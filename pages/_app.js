@@ -1,26 +1,46 @@
 import "../styles/globals.css";
+import "tailwindcss/tailwind.css";
 import Link from "next/link";
-
 function MyApp({ Component, pageProps }) {
   return (
     <div>
-      <nav className="border-b p-6">
-        <p className="text-4xl font-bold">Metaverse Marketplace</p>
-        <div className="flex mt-4">
-          <Link href="/">
-            <a className="mr-4 text-blue-500">Home</a>
-          </Link>
-          <Link href="/create-item">
-            <a className="mr-6 text-blue-500">Sell Digital Asset</a>
-          </Link>
-          <Link href="/my-assets">
-            <a className="mr-6 text-blue-500">My Digital Assets</a>
-          </Link>
-          <Link href="/creator-dashboard">
-            <a className="mr-6 text-blue-500">Creator Dashboard</a>
-          </Link>
-        </div>
+      <nav className="navbar" style={{ width: "100%" }}>
+        <label
+          className="navbar-toggle"
+          id="js-navbar-toggle"
+          htmlFor="chkToggle"
+        >
+          <i className="fa fa-bars"></i>
+        </label>
+        <a style={{ marginLeft: "20px" }} href="/" className="neonText">
+          NFT WORLD
+        </a>
+        <input type="checkbox" id="chkToggle"></input>
+        <ul className="main-nav" id="js-menu">
+          <li>
+            <Link href="/">
+              <a className="nav-links">Home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/create-item">
+              <a className="nav-links">Sell Digital Asset</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/my-assets">
+              <a className="nav-links">My Digital Assets</a>
+            </Link>
+          </li>
+
+          <li>
+            <Link href="/creator-dashboard">
+              <a className="nav-links neon">Creator Dashboard</a>
+            </Link>
+          </li>
+        </ul>
       </nav>
+
       <Component {...pageProps} />
     </div>
   );
